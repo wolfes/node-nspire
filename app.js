@@ -34,7 +34,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/vimspire', function(req, res) {
-    console.log('vimspire requested');
+    console.log('vimspire requested: ', req);
+    if (lastSocket) {
+        lastSocket.emit('open:tab:byName', {'name': 'ml'});
+    }
     res.send(req.online.length + ' users online');
 });
 
@@ -42,8 +45,11 @@ app.get('/hello.txt', function(req, res) {
     res.send('Hello World');
 });
 
+var lastSocket;
+
 /**  SOCKET.IO  */
 io.sockets.on('connection', function(socket) {
+    lastSocket = socket;
     socket.emit('testFromServer', { hello: 'world' });
     socket.on('testFromExt', function(data) {
         console.log(data);
