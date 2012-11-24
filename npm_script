@@ -1,8 +1,18 @@
 #!/bin/bash
 
 npm install -g express
+npm install -g nodemon
+npm install socket.io
 
-# Install Redis
+# For client code if hosted elsewhere.
+npm install socket.io-client
+# query server:port/socket.io/socket.io.js
+# ie: http://localhost:3000/socket.io/socket.io.js
+# wget file into chrome extension if needed.
+
+#############################
+
+## Install Redis: http://redis.io/download
 wget http://redis.googlecode.com/files/redis-2.6.5.tar.gz
 tar xzf redis-2.6.5.tar.gz
 rm redis-2.6.5.tar.gz
@@ -17,6 +27,7 @@ redis-server
 # Connect to redis in shell:
 #   redis-cli
 
+#############################
 
 
 

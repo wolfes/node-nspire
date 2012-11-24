@@ -4,10 +4,12 @@
  */
 var express = require('express');
 var redis = require('redis');
+var io = require('socket.io');
 
 var db = redis.createClient();
-var app = express();
-
+var app = express(),
+    server = require('http').createServer(app),
+    io = io.listen(server);
 
 /** MIDDLE-WARE */
 app.use(function(req, res, next) {
@@ -31,12 +33,24 @@ app.get('/', function(req, res) {
    res.send(req.online.length + ' users online');
 });
 
+app.get('/vimspire', function(req, res) {
+    console.log('vimspire requested');
+    res.send(req.online.length + ' users online');
+});
 
 app.get('/hello.txt', function(req, res) {
     res.send('Hello World');
 });
 
+/**  SOCKET.IO  */
+io.sockets.on('connection', function(socket) {
+    socket.emit('testFromServer', { hello: 'world' });
+    socket.on('testFromExt', function(data) {
+        console.log(data);
+    });
+});
 
 
-app.listen(3000);
+
+server.listen(3000);
 console.log('Listening on port 3000');
