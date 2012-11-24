@@ -1,0 +1,23 @@
+#!/bin/bash
+
+npm install -g express
+
+# Install Redis
+wget http://redis.googlecode.com/files/redis-2.6.5.tar.gz
+tar xzf redis-2.6.5.tar.gz
+rm redis-2.6.5.tar.gz
+cd redis-2.6.5
+make
+
+# Add commands: redis-server, redis-cli.
+sudo cp src/redis-server src/redis-cli /usr/local/bin/
+
+# Start redis server.
+redis-server
+# Connect to redis in shell:
+#   redis-cli
+
+
+
+
+
