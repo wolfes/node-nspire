@@ -49,19 +49,7 @@ app.use(function(req, res, next) {
 
 /** GET + POST */
 app.get('/', function(req, res) {
-   res.send(req.online.length + ' users online');
-});
-
-app.get('/vimspire', function(req, res) {
-    //console.log('vimspire requested: ', req);
-    if (lastSocket) {
-        lastSocket.emit('open:tab:byName', {'name': 'ml'});
-    }
-    res.send(req.online.length + ' users online');
-});
-
-app.get('/hello.txt', function(req, res) {
-    res.send('Hello World');
+    // res.send(req.online.length + ' users online');
 });
 
 app.post('/api/0/tabspire/:tabspireId/openTabByName', function(req, res) {
