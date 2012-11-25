@@ -54,7 +54,10 @@ app.use(function(req, res, next) {
 
 /** GET + POST */
 app.get('/', function(req, res) {
-    // res.send(req.online.length + ' users online');
+    res.send(
+        'Welcome! This nspire site connects tabspire and vimspire,' +
+        'more details coming soon!'
+    );
 });
 
 app.post('/api/0/tabspire/:tabspireId/openTabByName', function(req, res) {
