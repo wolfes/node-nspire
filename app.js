@@ -16,6 +16,7 @@ var app = express(),
 /** MIDDLE-WARE */
 app.use(express.bodyParser());
 
+/*
 app.use(function(req, res, next) {
     var ua = req.headers['user-agent'];
     db.zadd('online', Date.now(), ua, next);
@@ -30,6 +31,7 @@ app.use(function(req, res, next) {
         next();
     });
 });
+*/
 
 API_TABSPIRE_REGEX = /\/api\/\d*\/tabspire\/([\w]*)/;
 
