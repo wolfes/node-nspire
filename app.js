@@ -37,9 +37,12 @@ API_TABSPIRE_REGEX = /\/api\/\d*\/tabspire\/([\w]*)/;
 
 app.use(function(req, res, next) {
     var match = API_TABSPIRE_REGEX.exec(req.originalUrl);
+    if (!match) {
+        return next();
+    }
     if (match.length !== 2) {
         // Didn't find capture group for tabspire ID.
-        return next({});
+        return next();
     }
     req.tabspireId = match[1];
     if (req.tabspireId in socketById) {
