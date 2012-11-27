@@ -79,6 +79,13 @@ io.sockets.on('connection', function(socket) {
         if (!('socketId' in data)) {
             return;
         }
+        if ('oldSocketId' in data) {
+            // Delete old socket.
+            var oldSocketId = data['oldSocketId'];
+            var oldSocket = socketById[oldSocketId];
+            delete socketToId[oldSocket];
+            delete socketById[oldSocketId];
+        }
         var socketId = data['socketId'];
         socketById[socketId] = socket;
         socketToId[socket] = socketId;
