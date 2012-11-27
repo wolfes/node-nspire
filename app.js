@@ -36,16 +36,21 @@ app.use(function(req, res, next) {
 API_TABSPIRE_REGEX = /\/api\/\d*\/tabspire\/([\w]*)/;
 
 app.use(function(req, res, next) {
+    console.log(req.originalUrl);
     var match = API_TABSPIRE_REGEX.exec(req.originalUrl);
+    console.log(match);
     if (!match) {
+        console.log('no match');
         return next();
     }
-    if (match.length !== 2) {
+    if (match.length < 2) {
         // Didn't find capture group for tabspire ID.
+        console.log('No capture group');
         return next();
     }
     req.tabspireId = match[1];
     if (req.tabspireId in socketById) {
+        console.log('Client id found: ' + req.tabspireId);
         req.tabspireIo = socketById[req.tabspireId];
     }
     next();
@@ -63,6 +68,11 @@ app.get('/', function(req, res) {
 app.post('/api/0/tabspire/:tabspireId/openTabByName', function(req, res) {
     api_tabspire.openTabByName(req, res);
 });
+
+app.post('/api/0/tabspire/:tabspireId/openGoogleSearch', function(req, res) {
+    api_tabspire.openGoogleSearch(req, res);
+});
+
 
 var socketById = {};
 var socketToId = {};
