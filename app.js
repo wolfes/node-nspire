@@ -16,23 +16,6 @@ var app = express(),
 /** MIDDLE-WARE */
 app.use(express.bodyParser());
 
-/*
-app.use(function(req, res, next) {
-    var ua = req.headers['user-agent'];
-    db.zadd('online', Date.now(), ua, next);
-});
-
-app.use(function(req, res, next) {
-    var min = 60 * 1000;
-    var ago = Date.now() - min;
-    db.zrevrangebyscore('online', '+inf', ago, function(err, users) {
-        if (err) return next(err);
-        req.online = users;
-        next();
-    });
-});
-*/
-
 API_TABSPIRE_REGEX = /\/api\/\d*\/tabspire\/([\w]*)/;
 
 app.use(function(req, res, next) {
@@ -73,6 +56,9 @@ app.post('/api/0/tabspire/:tabspireId/openGoogleSearch', function(req, res) {
     api_tabspire.openGoogleSearch(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/openURL', function(req, res) {
+    api_tabspire.openURL(req, res);
+});
 
 var socketById = {};
 var socketToId = {};
