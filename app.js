@@ -46,10 +46,10 @@ app.use(function(req, res, next) {
 /** GET + POST */
 app.get('/', function(req, res) {
     res.send(
-        "Welcome! This nspire site connects " +
-        "<a href='http://wstyke.com/tabspire/'>Tabspire</a> and "
-        "<a href='https://github.com/wolfes/vimspire'>Vimspire</a>, " +
-        "more details coming soon!"
+        'Welcome! This nspire site connects ' +
+        '<a href=\'http://wstyke.com/tabspire/\'>Tabspire</a> and ' +
+        '<a href=\'https://github.com/wolfes/vimspire\'>Vimspire</a>, ' +
+        'more details coming soon!'
     );
 });
 
@@ -104,5 +104,5 @@ io.sockets.on('disconnect', function(socket) {
 
 
 
-server.listen(80);
-console.log('Listening on port 80');
+server.listen(3000);
+console.log('Listening on port 3000');
