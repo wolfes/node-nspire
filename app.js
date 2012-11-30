@@ -35,6 +35,9 @@ app.use(function(req, res, next) {
     if (req.tabspireId in socketById) {
         console.log('Client id found: ' + req.tabspireId);
         req.tabspireIo = socketById[req.tabspireId];
+    } else {
+        res.send('Missing Tabspire Client Is');
+        return next('error');
     }
     next();
 });
@@ -89,9 +92,11 @@ io.sockets.on('connection', function(socket) {
 });
 
 io.sockets.on('disconnect', function(socket) {
-    var socketId = socketToId[socket];
-    delete socketToId[socket];
-    delete socketById[socketId];
+    if (socket in socketToId) {
+        var socketId = socketToId[socket];
+        delete socketToId[socket];
+        delete socketById[socketId];
+    }
 });
 
 
