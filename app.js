@@ -46,10 +46,11 @@ app.use(function(req, res, next) {
 /** GET + POST */
 app.get('/', function(req, res) {
     res.send(
-        'Welcome! This nspire site connects ' +
+        'Welcome! <br /><br />This site connects Chrome & Vim with ' +
         '<a href=\'http://wstyke.com/tabspire/\'>Tabspire</a> and ' +
-        '<a href=\'https://github.com/wolfes/vimspire\'>Vimspire</a>, ' +
-        'more details coming soon!'
+        '<a href=\'https://github.com/wolfes/vimspire\'>Vimspire</a>!' +
+        '<br /><br />' +
+        'More details coming soon!'
     );
 });
 
