@@ -23,21 +23,21 @@ app.use(function(req, res, next) {
     var match = API_TABSPIRE_REGEX.exec(req.originalUrl);
     console.log(match);
     if (!match) {
-        console.log('no match');
+        //console.log('no match');
         return next();
     }
     if (match.length < 2) {
         // Didn't find capture group for tabspire ID.
-        console.log('No capture group');
+        //console.log('No capture group');
         return next();
     }
     req.tabspireId = match[1];
     if (req.tabspireId in socketById) {
-        console.log('Client id found: ' + req.tabspireId);
+        //console.log('Client id found: ' + req.tabspireId);
         req.tabspireIo = socketById[req.tabspireId];
     } else {
-        res.send('Missing Tabspire Client Is');
-        return next('error');
+        res.send('Missing Tabspire Client Id');
+        return next('Tabspire ClientId Missing.');
     }
     next();
 });
@@ -46,7 +46,9 @@ app.use(function(req, res, next) {
 /** GET + POST */
 app.get('/', function(req, res) {
     res.send(
-        'Welcome! This nspire site connects tabspire and vimspire,' +
+        'Welcome! This nspire site connects ' +
+        '<a href="http://wstyke.com/tabspire/">Tabspire</a> and '
+        '<a href="https://github.com/wolfes/vimspire">Vimspire</a>, ' +
         'more details coming soon!'
     );
 });
