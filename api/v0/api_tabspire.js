@@ -27,3 +27,15 @@ exports.openGoogleSearch = function(req, res) {
     });
     res.send('');
 };
+
+/**
+ * Open tab with specified url..
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.openURL = function(req, res) {
+    req.tabspireIo.emit('tab:openByURL', {
+        'url': req.body.url
+    });
+    res.send('');
+};
