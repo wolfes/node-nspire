@@ -58,6 +58,10 @@ app.post('/api/0/tabspire/:tabspireId/openTabByName', function(req, res) {
     api_tabspire.openTabByName(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/reloadTabByName', function(req, res) {
+    api_tabspire.openTabByName(req, res);
+});
+
 app.post('/api/0/tabspire/:tabspireId/openGoogleSearch', function(req, res) {
     api_tabspire.openGoogleSearch(req, res);
 });

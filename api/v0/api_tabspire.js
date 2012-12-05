@@ -17,6 +17,18 @@ exports.openTabByName = function(req, res) {
 };
 
 /**
+ * Reload tab by name in tabspire.
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.reloadTabByName = function(req, res) {
+    req.tabspireIo.emit('tab:reloadByName', {
+       'tabName': req.body.tabName
+    });
+    res.send('');
+};
+
+/**
  * Open tab with google search query.
  * @param {object} req The request.
  * @param {object} res The response.
