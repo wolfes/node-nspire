@@ -57,7 +57,7 @@ exports.openURL = function(req, res) {
  * @param {object} req The request.
  * @param {object} res The response.
  */
-exports.openURL = function(req, res) {
+exports.reloadCurrentTab = function(req, res) {
     req.tabspireIo.emit('tab:reloadCurrent', {});
     res.send('');
 };
