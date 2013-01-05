@@ -51,3 +51,13 @@ exports.openURL = function(req, res) {
     });
     res.send('');
 };
+
+/**
+ * Reload currently focused tab.
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.openURL = function(req, res) {
+    req.tabspireIo.emit('tab:reloadCurrent', {});
+    res.send('');
+};

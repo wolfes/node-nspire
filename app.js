@@ -70,6 +70,10 @@ app.post('/api/0/tabspire/:tabspireId/openURL', function(req, res) {
     api_tabspire.openURL(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/reloadCurrentTab', function(req, res) {
+    api_tabspire.reloadCurrentTab(req, res);
+});
+
 var socketById = {};
 var socketToId = {};
 
