@@ -68,7 +68,7 @@ exports.reloadCurrentTab = function(req, res) {
  * @param {object} res The response.
  */
 exports.reloadFocusMark = function(req, res) {
-    req.tabspireIo.emit('tab:reloadCurrent', {
+    req.tabspireIo.emit('tab:reloadFocusMark', {
         'mark': req.body.markChar
     });
     res.send('');
