@@ -73,3 +73,15 @@ exports.reloadFocusMark = function(req, res) {
     });
     res.send('');
 };
+
+/**
+ * Focus Marked Tab.
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.focusMark = function(req, res) {
+    req.tabspireIo.emit('tab:focusMark', {
+        'mark': req.body.markChar
+    });
+    res.send('');
+};

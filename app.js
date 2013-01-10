@@ -78,6 +78,10 @@ app.post('/api/0/tabspire/:tabspireId/reloadFocusMark', function(req, res) {
     api_tabspire.reloadFocusMark(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/focusMark', function(req, res) {
+    api_tabspire.focusMark(req, res);
+});
+
 var socketById = {};
 var socketToId = {};
 
