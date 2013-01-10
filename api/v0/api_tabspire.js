@@ -61,3 +61,15 @@ exports.reloadCurrentTab = function(req, res) {
     req.tabspireIo.emit('tab:reloadCurrent', {});
     res.send('');
 };
+
+/**
+ * Reload/Open & Focus Marked Tab.
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.reloadFocusMark = function(req, res) {
+    req.tabspireIo.emit('tab:reloadCurrent', {
+        'mark': req.body.markChar
+    });
+    res.send('');
+};

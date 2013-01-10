@@ -74,6 +74,10 @@ app.post('/api/0/tabspire/:tabspireId/reloadCurrentTab', function(req, res) {
     api_tabspire.reloadCurrentTab(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/reloadFocusMark', function(req, res) {
+    api_tabspire.reloadFocusMark(req, res);
+});
+
 var socketById = {};
 var socketToId = {};
 
