@@ -8,7 +8,7 @@ var io = require('socket.io');
 
 var api_tabspire = require('./api/v0/api_tabspire.js');
 
-var db = redis.createClient();
+//var db = redis.createClient();
 var app = express(),
     server = require('http').createServer(app),
     io = io.listen(server);
