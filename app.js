@@ -82,6 +82,10 @@ app.post('/api/0/tabspire/:tabspireId/focusMark', function(req, res) {
     api_tabspire.focusMark(req, res);
 });
 
+app.post('/api/0/tabspire/:tabspireId/focusCurrentWindow', function(req, res) {
+    api_tabspire.focusCurrentWindow(req, res);
+});
+
 var socketById = {};
 var socketToId = {};
 

@@ -85,3 +85,13 @@ exports.focusMark = function(req, res) {
     });
     res.send('');
 };
+
+/**
+ * Focus the focused tab.  Causes Chrome to gain focus.
+ * @param {object} req The request.
+ * @param {object} res The response.
+ */
+exports.focusCurrentWindow = function(req, res) {
+    req.tabspireIo.emit('window:focusCurrent', {});
+    res.send('');
+};
